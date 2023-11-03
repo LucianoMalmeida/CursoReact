@@ -7,7 +7,7 @@ export const CartWidget = () => {
 
     return (
         <>
-        <button> <i class="fas fa-shopping-cart"></i> {count} </button>
+        <div> <i class="fas fa-shopping-cart"></i> {count} </div>
         </>
         
 

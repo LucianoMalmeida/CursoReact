@@ -1,12 +1,11 @@
-import { NavBar } from "./components/NavBar/NavBar"
-import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer"
+import { NavBar,ItemListContainer} from "./components"
 
 export const App = () => {
   return (
     <>
     <NavBar/>
-    <ItemListContainer greeting= "HOLA MUNDO"/>
-    </>
+    <ItemListContainer greeting= "Bienvenidos a su tienda Pokemon"/>
+     </>
   )
 }
 
