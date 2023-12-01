@@ -1,32 +1,26 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useParams } from "react"
 import { GamesDetail } from "../GamesDetail/GamesDetail";
+import { getProductById } from "../../MockPokemon.js";
 
 export const ItemDetailContainer = () => {
+  const [game, setGame] = useState(null);
+  const { id } = useParams();
 
-    const [game, setGame] = useState (null);
-    
-    const getGame = async (id) => {
-
-        try {
-            const resp = await fetch ('src/MockPokemon.json');
-            const data = await resp.json()
-            setGame(data);
-
-
-        } catch (error) {
-            console.log(error);
+  const getGame = async () => {
+    try {
+      
+      const product = await getProductById(id);
+      setGame(product);
+    } catch (error) {
+      console.log(error);
     }
+  };
 
-useEffect (() => {
-    
-    getGame()    
+  useEffect(() => {
+    getGame();
+  }, [id]);
 
-}, [])
-
-    }
   return (
-    <div>
-        { game && <GamesDetail {...game}/> }
-    </div>
-  )
-  }
+    <div>{game && <GamesDetail {...game} />}</div>
+  );
+};
